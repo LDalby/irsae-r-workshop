@@ -6,20 +6,20 @@
     <meta name="author" content="Lars Dalby" />
     <meta name="date" content="2018-04-04" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css-tweaks.css" type="text/css" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
   </head>
   <body>
     <textarea id="source">
+class: center, middle, inverse, title-slide
 
-
-
-
----
-layout: true
-
-&lt;div class="my-footer"&gt;&lt;/div&gt;       
+# IRSAE <strong>R</strong> workshop
+## Climate Change Ecology
+### Lars Dalby
+### 2018-04-04
 
 ---
+
+
 
 
 # Program
@@ -28,9 +28,9 @@ Not much time, but here are the topics I think we should touch upon:
 
 --
 
-- Hidden features of the RStudio IDE
+- Useful features of the RStudio IDE
 
-- Good project management practice
+- Advice on project management
 
 - RMarkdown
 
@@ -44,7 +44,7 @@ Not much time, but here are the topics I think we should touch upon:
 
 # RStudio IDE
 
-100% of respondents to the pre workshop survey use RStudio...
+Nearly everybody uses RStudio (and I strongly recommed using it)
 
 Let's have a look around - live demo
 
@@ -52,7 +52,23 @@ Let's have a look around - live demo
 
 # Projects
 
-Use a project-oriented workflow
+## Use a project-oriented workflow
+
+--
+
+Why?
+
+--
+
+Makes these things easier:
+
+- Working on multiple projects at the same time
+- Starting and stopping
+- Collaborating
+
+--
+
+How?
 
 --
 
@@ -62,15 +78,30 @@ Use a project-oriented workflow
 
 ---
 
-# What are the benefits?
+# What are the benefits of `.rproj`?
 
 --
 
 - RStudio rembers settings, open files, unsaved files(!), etc
 - Dedicated instance of RStudio
-- Dedicated **R** process
+- Dedicated `R` process
 - File browser is looking the right place
-- WD is at the right place
+- Work directory starts at the right place
+
+
+.footnote[
+See Jenny Bryan's [article](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/) on Project-oriented workflows for more details
+]
+
+---
+
+You can now safely remove these lines:
+
+
+```r
+setwd("/Users/Lars/path/to/secret/place")
+rm(list = ls())
+```
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({

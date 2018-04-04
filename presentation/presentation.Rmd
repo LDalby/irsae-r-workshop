@@ -6,8 +6,7 @@ date: "`r format(Sys.Date())`"
 output:
   xaringan::moon_reader:
     lib_dir: libs
-    seal: false
-    css: ["default", "css-tweaks.css"]
+    css: ["default", "default-fonts"]
     nature:
       highlightStyle: github
       highlightLines: true
@@ -18,23 +17,15 @@ output:
 options(htmltools.dir.version = FALSE)
 ```
 
----
-layout: true
-
-<div class="my-footer"></div>       
-
----
-
-
 # Program
 
 Not much time, but here are the topics I think we should touch upon:
 
 --
 
-- Hidden features of the RStudio IDE
+- Useful features of the RStudio IDE
 
-- Good project management practice
+- Advice on project management
 
 - RMarkdown
 
@@ -48,7 +39,7 @@ Not much time, but here are the topics I think we should touch upon:
 
 # RStudio IDE
 
-100% of respondents to the pre workshop survey use RStudio...
+Nearly everybody uses RStudio (and I strongly recommed using it)
 
 Let's have a look around - live demo
 
@@ -56,7 +47,23 @@ Let's have a look around - live demo
 
 # Projects
 
-Use a project-oriented workflow
+## Use a project-oriented workflow
+
+--
+
+Why?
+
+--
+
+Makes these things easier:
+
+- Working on multiple projects at the same time
+- Starting and stopping
+- Collaborating
+
+--
+
+How?
 
 --
 
@@ -66,15 +73,27 @@ Use a project-oriented workflow
 
 ---
 
-# What are the benefits?
+# What are the benefits of `.rproj`?
 
 --
 
 - RStudio rembers settings, open files, unsaved files(!), etc
 - Dedicated instance of RStudio
-- Dedicated **R** process
+- Dedicated `R` process
 - File browser is looking the right place
-- WD is at the right place
+- Work directory starts at the right place
 
 
+.footnote[
+See Jenny Bryan's [article](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/) on Project-oriented workflows for more details
+]
+
+---
+
+You can now safely remove these lines:
+
+```{r eval=FALSE, tidy=FALSE}
+setwd("/Users/Lars/path/to/secret/place")
+rm(list = ls())
+```
 
