@@ -1,0 +1,12 @@
+# Useful short-cuts
+ctrl+1 - jump to script
+ctrl+2 - jump to console 
+ctrl+D - duplicate line
+ctrl+shift+D - delete line
+ctrl+shift+M - insert pipe operator
+ctrl+shift+K - knit document
+F1 on function - help
+F2 on functoin - source
+
+# Useful functions
+View
