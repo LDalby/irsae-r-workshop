@@ -1,0 +1,80 @@
+---
+title: "IRSAE **R** workshop"
+subtitle: "Climate Change Ecology"
+author: "Lars Dalby"
+date: "`r format(Sys.Date())`"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    seal: false
+    css: ["default", "css-tweaks.css"]
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+---
+layout: true
+
+<div class="my-footer"></div>       
+
+---
+
+
+# Program
+
+Not much time, but here are the topics I think we should touch upon:
+
+--
+
+- Hidden features of the RStudio IDE
+
+- Good project management practice
+
+- RMarkdown
+
+- The Tidyverse
+
+- Maps
+
+- Random stuff that come up over the next couple of hours 
+
+---
+
+# RStudio IDE
+
+100% of respondents to the pre workshop survey use RStudio...
+
+Let's have a look around - live demo
+
+---
+
+# Projects
+
+Use a project-oriented workflow
+
+--
+
+- Have a directory dedicated to your project
+- Create an RStudio project
+- (make this a git repo)
+
+---
+
+# What are the benefits?
+
+--
+
+- RStudio rembers settings, open files, unsaved files(!), etc
+- Dedicated instance of RStudio
+- Dedicated **R** process
+- File browser is looking the right place
+- WD is at the right place
+
+
+
