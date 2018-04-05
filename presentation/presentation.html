@@ -97,12 +97,11 @@ How?
 
 ---
 
-You can now safely remove these lines:
+You can now safely remove this line:
 
 
 ```r
 setwd("/Users/Lars/path/to/secret/place")
-rm(list = ls())
 ```
 
 ---
@@ -111,9 +110,31 @@ rm(list = ls())
 
 Insert screen dump of preferences
 
-Restart `R` often (short-cut `ctrl+shift+F10`)
+Restart `R` often! (short-cut `ctrl+shift+F10`)
+
+This does not give you a clean start:
+
+```r
+rm(list = ls())
+```
 
 ---
+
+# Names
+
+Make sure to name your stuff properly (your future self will thank you!)
+
+1. Machine readable
+2. Human readable
+3. Sort nicely
+
+--
+
+So, no spaces, no punctuation, no funny characters (æ,ø,å!!!!), case matters
+
+
+lars's data file.xlsx  
+2018-04-05_lars-data-file.xlsx
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
