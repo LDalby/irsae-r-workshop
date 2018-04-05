@@ -47,8 +47,11 @@ Let's have a look around - live demo
 
 # Projects
 
-## Use a project-oriented workflow
+## Use a project-oriented workflow<sup>1</sup>
 
+.footnote[
+[1] See Jenny Bryan's [article](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/) on Project-oriented workflows for more details
+]
 --
 
 Why?
@@ -71,6 +74,7 @@ How?
 - Create an RStudio project
 - (make this a git repo)
 
+
 ---
 
 # What are the benefits of `.rproj`?
@@ -84,16 +88,47 @@ How?
 - Work directory starts at the right place
 
 
-.footnote[
-See Jenny Bryan's [article](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/) on Project-oriented workflows for more details
-]
+
 
 ---
 
-You can now safely remove these lines:
+You can now safely remove this line:
 
 ```{r eval=FALSE, tidy=FALSE}
 setwd("/Users/Lars/path/to/secret/place")
+```
+
+---
+
+# Start with a clean sheet
+
+Insert screen dump of preferences
+
+Restart `R` often! (short-cut `ctrl+shift+F10`)
+
+This does not give you a clean start:
+```{r eval=FALSE, tidy=FALSE}
 rm(list = ls())
 ```
+
+---
+
+# Names
+
+Make sure to name your stuff properly (your future self will thank you!)
+
+1. Machine readable
+2. Human readable
+3. Sort nicely
+
+--
+
+So, no spaces, no punctuation, no funny characters (æ,ø,å!!!!), case matters
+
+
+
+
+
+
+
 
