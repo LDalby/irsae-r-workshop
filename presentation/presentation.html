@@ -4,7 +4,7 @@
     <title>IRSAE R workshop</title>
     <meta charset="utf-8">
     <meta name="author" content="Lars Dalby" />
-    <meta name="date" content="2018-04-05" />
+    <meta name="date" content="2018-04-08" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
   </head>
@@ -15,7 +15,7 @@ class: center, middle, inverse, title-slide
 # IRSAE <strong>R</strong> workshop
 ## Climate Change Ecology
 ### Lars Dalby
-### 2018-04-05
+### 2018-04-08
 
 ---
 
@@ -30,16 +30,20 @@ Not much time, but here are the topics I think we should touch upon:
 
 - Useful features of the RStudio IDE
 
-- Advice on project management
-
-- RMarkdown
+- Advice on Project management&lt;sup&gt;1&lt;/sup&gt;
 
 - The Tidyverse
 
 - Maps
 
+- RMarkdown
+
 - Random stuff that come up over the next couple of hours 
 
+
+.footnote[
+[1] See Jenny Bryan's exellent [material](https://github.com/jennybc/what-they-forgot) on Project management
+]
 ---
 
 # RStudio IDE
@@ -50,9 +54,7 @@ Let's have a look around - live demo
 
 ---
 
-# Projects
-
-## Use a project-oriented workflow&lt;sup&gt;1&lt;/sup&gt;
+# Use a project-oriented workflow&lt;sup&gt;1&lt;/sup&gt;
 
 .footnote[
 [1] See Jenny Bryan's [article](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/) on Project-oriented workflows for more details
@@ -93,9 +95,11 @@ How?
 - Work directory starts at the right place
 
 
+-- 
 
+Demo
 
----
+--
 
 You can now safely remove this line:
 
@@ -105,12 +109,16 @@ setwd("/Users/Lars/path/to/secret/place")
 ```
 
 ---
+class: middle, center
+# Start with a clean sheet
+&lt;img src="rstudio-preferences.png" width="400px" /&gt;
+
+---
 
 # Start with a clean sheet
-
-Insert screen dump of preferences
-
 Restart `R` often! (short-cut `ctrl+shift+F10`)
+
+--
 
 This does not give you a clean start:
 
@@ -124,17 +132,30 @@ rm(list = ls())
 
 Make sure to name your stuff properly (your future self will thank you!)
 
+--
+
 1. Machine readable
 2. Human readable
 3. Sort nicely
 
 --
 
-So, no spaces, no punctuation, no funny characters (æ,ø,å!!!!), case matters
+This implies:
+
+1. no spaces, no punctuation, no funny characters (æ,ø,å!!!!), case matters
+2. info on content (2017-06-15_soil-samples.tsv)
+3. start with something numeric, left pad with zeros for constant width, dates in ISO 8601
 
 
-lars's data file.xlsx  
-2018-04-05_lars-data-file.xlsx
+
+
+---
+
+# Links to good stuff
+Some pointers to topics that were requested, but that will not cover today:
+
+1. Calling `python` from `R` - [reticulate](http://blog.rstudio.com/2018/03/26/reticulate-r-interface-to-python/)
+2. GBIF - see the ropensci `rgbif` [tutorial](https://ropensci.org/tutorials/rgbif_tutorial/)
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
