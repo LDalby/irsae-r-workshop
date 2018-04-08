@@ -49,9 +49,7 @@ Let's have a look around - live demo
 
 ---
 
-# Projects
-
-## Use a project-oriented workflow<sup>1</sup>
+# Use a project-oriented workflow<sup>1</sup>
 
 .footnote[
 [1] See Jenny Bryan's [article](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/) on Project-oriented workflows for more details
@@ -91,6 +89,7 @@ How?
 - File browser is looking the right place
 - Work directory starts at the right place
 
+
 -- 
 
 Demo
@@ -115,6 +114,8 @@ knitr::include_graphics("rstudio-preferences.png")
 # Start with a clean sheet
 Restart `R` often! (short-cut `ctrl+shift+F10`)
 
+--
+
 This does not give you a clean start:
 ```{r eval=FALSE, tidy=FALSE}
 rm(list = ls())
@@ -126,11 +127,15 @@ rm(list = ls())
 
 Make sure to name your stuff properly (your future self will thank you!)
 
+--
+
 1. Machine readable
 2. Human readable
 3. Sort nicely
 
 --
+
+This implies:
 
 1. no spaces, no punctuation, no funny characters (æ,ø,å!!!!), case matters
 2. info on content (2017-06-15_soil-samples.tsv)
@@ -146,6 +151,7 @@ Some pointers to topics that were requested, but that will not cover today:
 
 1. Calling `python` from `R` - [reticulate](http://blog.rstudio.com/2018/03/26/reticulate-r-interface-to-python/)
 2. GBIF - see the ropensci `rgbif` [tutorial](https://ropensci.org/tutorials/rgbif_tutorial/)
+
 
 
 
