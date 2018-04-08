@@ -18,5 +18,19 @@ ggplot(dk) +
   geom_sf() + 
   theme_bw()
 
+# Let's see where we are
+c(10.4974418, 56.2976386) %>% 
+  st_point() %>%
+  st_sfc(crs = st_crs(dk)) %>% 
+  st_sf() -> jagtslottet
+
+ggplot(dk) +
+  geom_sf() + 
+  geom_sf(data = jagtslottet, color = "blue", size = 3) +
+  theme_bw()
+
+# Interactive using mapview
+library(mapview)
+mapview(jagtslottet, map.types = "OpenStreetMap.Mapnik")
 
 
