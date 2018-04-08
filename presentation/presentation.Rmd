@@ -25,16 +25,20 @@ Not much time, but here are the topics I think we should touch upon:
 
 - Useful features of the RStudio IDE
 
-- Advice on project management
-
-- RMarkdown
+- Advice on Project management<sup>1</sup>
 
 - The Tidyverse
 
 - Maps
 
+- RMarkdown
+
 - Random stuff that come up over the next couple of hours 
 
+
+.footnote[
+[1] See Jenny Bryan's exellent [material](https://github.com/jennybc/what-they-forgot) on Project management
+]
 ---
 
 # RStudio IDE
@@ -87,10 +91,11 @@ How?
 - File browser is looking the right place
 - Work directory starts at the right place
 
+-- 
 
+Demo
 
-
----
+--
 
 You can now safely remove this line:
 
@@ -99,11 +104,15 @@ setwd("/Users/Lars/path/to/secret/place")
 ```
 
 ---
+class: middle, center
+# Start with a clean sheet
+```{r, out.width = "400px", echo=FALSE}
+knitr::include_graphics("rstudio-preferences.png")
+```
+
+---
 
 # Start with a clean sheet
-
-Insert screen dump of preferences
-
 Restart `R` often! (short-cut `ctrl+shift+F10`)
 
 This does not give you a clean start:
@@ -123,13 +132,20 @@ Make sure to name your stuff properly (your future self will thank you!)
 
 --
 
-So, no spaces, no punctuation, no funny characters (æ,ø,å!!!!), case matters
+1. no spaces, no punctuation, no funny characters (æ,ø,å!!!!), case matters
+2. info on content (2017-06-15_soil-samples.tsv)
+3. start with something numeric, left pad with zeros for constant width, dates in ISO 8601
 
 
-lars's data file.xlsx  
-2018-04-05_lars-data-file.xlsx  
 
 
+---
+
+# Links to good stuff
+Some pointers to topics that were requested, but that will not cover today:
+
+1. Calling `python` from `R` - [reticulate](http://blog.rstudio.com/2018/03/26/reticulate-r-interface-to-python/)
+2. GBIF - see the ropensci `rgbif` [tutorial](https://ropensci.org/tutorials/rgbif_tutorial/)
 
 
 
