@@ -1,4 +1,5 @@
-# IRSAE workshop
+# IRSAE R workshop, Kaloe
+# Date April 9th 2018
 # Author Lars Dalby
 
 library(tidyverse)
@@ -25,3 +26,22 @@ iris %>%
 iris %>% 
   as_tibble() %>% 
   mutate(Sepal.Area = Sepal.Length * Sepal.Width)
+  
+
+# Summarize into species wise averages
+iris %>% 
+  as_tibble() %>% 
+  mutate(Sepal.Area = Sepal.Length * Sepal.Width) %>% 
+  group_by(Species) %>% 
+  summarise(Avg.Area = mean(Sepal.Area))
+
+# Nice one! But not particulaly tidy - can we sort by Avg.Area?
+# Sure! Meet arrange()
+iris %>% 
+  as_tibble() %>% 
+  mutate(Sepal.Area = Sepal.Length * Sepal.Width) %>% 
+  group_by(Species) %>% 
+  summarise(Avg.Area = mean(Sepal.Area)) %>% 
+  arrange(Avg.Area)
+
+
