@@ -41,11 +41,22 @@ Not much time, but here are the topics I think we should touch upon:
 ]
 ---
 
+
 # RStudio IDE
 
 Nearly everybody uses RStudio (and I strongly recommed using it)
 
 Let's have a look around - live demo
+
+???
+
+  1. Pane arrangement
+  2. Themes
+  3. Snippets (ts, lib, fun)
+  4. Addins (datapasta)
+  5. Keyboard shortcuts 
+  6. Cheatsheets
+
 
 ---
 
