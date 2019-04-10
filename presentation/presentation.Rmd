@@ -14,7 +14,10 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-options(htmltools.dir.version = FALSE)
+options(htmltools.dir.version = FALSE,
+        fig.retina = 3,
+        warning = FALSE,
+        message = FALSE)
 ```
 
 # Program
