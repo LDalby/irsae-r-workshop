@@ -89,7 +89,26 @@ How?
 - Have a directory dedicated to your project
 - Create an RStudio project
 - (make this a git repo)
+- Use the [here](https://cran.r-project.org/web/packages/here/index.html) `r emo::ji("package")`
 
+---
+# The here `r emo::ji("package")`
+
+It knows where your project lives so you don't have to worry about the path that comes before it.
+
+This will work:
+
+```{r eval=FALSE, tidy=FALSE}
+source(here("r", "02_plot-maps.R"))
+```
+
+even though the real path is:
+```{r eval=TRUE, tidy=FALSE}
+fs::path_wd("r", "02_plot-maps.R")
+```
+
+
+This means it works across different machines (nice when collaborating!)
 
 ---
 
