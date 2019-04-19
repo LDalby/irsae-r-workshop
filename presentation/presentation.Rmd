@@ -24,6 +24,7 @@ options(htmltools.dir.version = FALSE,
 ```{r include=FALSE}
 library(tidyverse)
 library(here)
+library(fontawesome)
 ```
 
 
@@ -112,8 +113,27 @@ How?
 
 - Have a directory dedicated to your project
 - Create an RStudio project
-- (make this a git repo)
+- (make this a `r fa("git-square")` [repo](https://happygitwithr.com/new-github-first.html#make-a-repo-on-github-1))
 - Use the [here](https://cran.r-project.org/web/packages/here/index.html) `r emo::ji("package")`
+
+
+
+
+---
+
+# What are the benefits of `.rproj`?
+
+--
+
+- RStudio rembers settings, open files, unsaved files(!), etc
+- Dedicated instance of RStudio (`cmd+tab` to switch between projects)
+- Dedicated `R` process
+- File browser is looking the right place
+
+
+--
+
+Demo
 
 ---
 # The here `r emo::ji("package")`
@@ -131,24 +151,7 @@ even though the absolute path is:
 fs::path_wd("r", "02_plot-maps.R")
 ```
 
-
 This means it works across different machines (nice when collaborating!)
-
----
-
-# What are the benefits of `.rproj`?
-
---
-
-- RStudio rembers settings, open files, unsaved files(!), etc
-- Dedicated instance of RStudio
-- Dedicated `R` process
-- File browser is looking the right place
-
-
---
-
-Demo
 
 --
 
