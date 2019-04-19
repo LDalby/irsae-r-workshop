@@ -29,51 +29,46 @@ library(here)
 
 # Program
 
-.pull-left[
+
 You asked for:
 
 ```{r echo = FALSE}
 knitr::include_graphics("survey-answers.png")
 ```
 
-]
+---
+# Program
 
---
-.pull-right[
 
-But first...
+..but first...
 
 - Useful features of the RStudio IDE
 
 - Advice on Project management<sup>1</sup>
-]
-
 
 
 .footnote[
 [1] My slides here are a boildown of Jenny Bryan's excellent [material](https://github.com/jennybc/what-they-forgot) on Project management
 ]
 
----
-
-
-
-
-layout: true
-
-background-image: url(https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-Flat.png)
-background-position: 50% 50%
-background-size: 20%
 
 ---
 
-
-
-# IDE
-
+# RStudio IDE
+.pull-left[
 Nearly everybody uses RStudio (and I strongly recommed using it)
 
 Let's have a look around - live demo
+
+]
+
+.pull-right[
+Your answers:
+
+```{r echo = FALSE}
+knitr::include_graphics("editor-answers.png")
+```
+]
 
 ???
 
@@ -123,7 +118,7 @@ How?
 ---
 # The here `r emo::ji("package")`
 
-It knows where your project lives so you don't have to worry about the path that comes before it.
+It knows where your project lives so you don't have to worry about it.
 
 This will work:
 
@@ -131,7 +126,7 @@ This will work:
 source(here("r", "02_plot-maps.R"))
 ```
 
-even though the real path is:
+even though the absolute path is:
 ```{r eval=TRUE, tidy=FALSE}
 fs::path_wd("r", "02_plot-maps.R")
 ```
@@ -151,8 +146,7 @@ This means it works across different machines (nice when collaborating!)
 - File browser is looking the right place
 
 
-
--- 
+--
 
 Demo
 
@@ -165,11 +159,12 @@ setwd("/Users/Lars/path/to/secret/place")
 ```
 
 ---
-class: middle, center
-# Start with a clean sheet
-```{r, out.width = "400px", echo=FALSE}
-knitr::include_graphics("rstudio-preferences.png")
-```
+
+background-image: url(rstudio-preferences.png)
+background-position: 50% 65%
+background-size: 40%
+
+# Start with a clean sheet:
 
 ---
 
@@ -207,28 +202,18 @@ This implies:
 
 # Names
 
-.pull-left[
-```{r tmp, eval=FALSE}
-# code chunk here
+```{r names}
+fs::dir_tree(here("data"))
+
+```
+--
+
+```{r names-subset}
 fs::dir_ls(here("data")) %>% 
   str_subset("soil_data") -> files
 files
 ```
-]
 
-.pull-right[
-```{r tmp-out, ref.label="tmp", echo=FALSE}
-```
-]
-
----
-# Test
-```{r tmp-2}
-# code chunk here
-fs::dir_ls(here("data")) %>% 
-  str_subset("soil_data") -> files
-files
-```
 
 ---
 background-image: url(tidyverse.png)
