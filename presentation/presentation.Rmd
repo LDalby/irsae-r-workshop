@@ -8,9 +8,10 @@ output:
     lib_dir: libs
     css: ["default", "default-fonts"]
     nature:
-      highlightStyle: github
+      highlightStyle: monokai
       highlightLines: true
       countIncrementalSlides: false
+      ratio: "16:9"
 ---
 
 ```{r setup, include=FALSE}
@@ -20,32 +21,55 @@ options(htmltools.dir.version = FALSE,
         message = FALSE)
 ```
 
+```{r include=FALSE}
+library(tidyverse)
+library(here)
+```
+
+
 # Program
 
-Not much time, but here are the topics I think we should touch upon:
+.pull-left[
+You asked for:
+
+```{r echo = FALSE}
+knitr::include_graphics("survey-answers.png")
+```
+
+]
 
 --
+.pull-right[
+
+But first...
 
 - Useful features of the RStudio IDE
 
 - Advice on Project management<sup>1</sup>
+]
 
-- The Tidyverse
-
-- Maps
-
-- Importing excel data
-
-- Random stuff that come up over the next couple of hours 
 
 
 .footnote[
 [1] My slides here are a boildown of Jenny Bryan's excellent [material](https://github.com/jennybc/what-they-forgot) on Project management
 ]
+
 ---
 
 
-# RStudio IDE
+
+
+layout: true
+
+background-image: url(https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-Flat.png)
+background-position: 50% 50%
+background-size: 20%
+
+---
+
+
+
+# IDE
 
 Nearly everybody uses RStudio (and I strongly recommed using it)
 
@@ -59,6 +83,11 @@ Let's have a look around - live demo
   4. Addins (datapasta)
   5. Keyboard shortcuts 
   6. Cheatsheets
+
+
+
+---
+layout: true
 
 
 ---
@@ -181,8 +210,9 @@ This implies:
 .pull-left[
 ```{r tmp, eval=FALSE}
 # code chunk here
-x <- 1:10
-x
+fs::dir_ls(here("data")) %>% 
+  str_subset("soil_data") -> files
+files
 ```
 ]
 
@@ -191,6 +221,14 @@ x
 ```
 ]
 
+---
+# Test
+```{r tmp-2}
+# code chunk here
+fs::dir_ls(here("data")) %>% 
+  str_subset("soil_data") -> files
+files
+```
 
 ---
 background-image: url(tidyverse.png)
