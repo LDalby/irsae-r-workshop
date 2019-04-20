@@ -1,5 +1,5 @@
 ---
-title: "IRSAE **R** workshop"
+title: 'IRSAE `r fa(name = "r-project", fill = "Steelblue")` workshop'
 subtitle: "Climate Change Ecology"
 author: "Lars Dalby"
 date: "`r format(Sys.Date())`"
@@ -47,6 +47,8 @@ knitr::include_graphics("survey-answers.png")
 
 - Advice on Project management<sup>1</sup>
 
+-
+
 
 .footnote[
 [1] My slides here are a boildown of Jenny Bryan's excellent [material](https://github.com/jennybc/what-they-forgot) on Project management
@@ -57,7 +59,7 @@ knitr::include_graphics("survey-answers.png")
 
 # RStudio IDE
 .pull-left[
-Nearly everybody uses RStudio (and I strongly recommed using it)
+Nearly all of you use RStudio (and I strongly recommed using it)
 
 Let's have a look around - live demo
 
@@ -88,7 +90,7 @@ layout: true
 
 ---
 
-# Use a project-oriented workflow<sup>1</sup>
+# Use a project-oriented workflow
 
 .footnote[
 [1] See Jenny Bryan's [article](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/) on Project-oriented workflows for more details
@@ -147,7 +149,7 @@ source(here("r", "02_plot-maps.R"))
 ```
 
 even though the absolute path is:
-```{r eval=TRUE, tidy=FALSE}
+```{r echo=FALSE, tidy=FALSE}
 fs::path_wd("r", "02_plot-maps.R")
 ```
 
@@ -171,15 +173,16 @@ background-size: 40%
 
 ---
 
-# Start with a clean sheet
-Restart `R` often! (short-cut `ctrl+shift+F10`)
+# Start with a clean sheet:
+Restart `R` often! (short-cut `cmd+shift+F10`)
 
 --
 
-This does not give you a clean start:
+This only emties your environment:
 ```{r eval=FALSE, tidy=FALSE}
 rm(list = ls())
 ```
+
 
 ---
 
@@ -205,6 +208,14 @@ This implies:
 
 # Names
 
+```{r echo = FALSE, out.width='75%', fig.align='center'}
+knitr::include_graphics("names-dark-diversity.png")
+```
+
+---
+
+# Names
+
 ```{r names}
 fs::dir_tree(here("data"))
 
@@ -216,6 +227,36 @@ fs::dir_ls(here("data")) %>%
   str_subset("soil_data") -> files
 files
 ```
+
+
+---
+name: hands-on
+class: middle
+
+
+# We will look into:
+
+--
+
+### <img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/tidyverse.png" width="10%" style="float:left"/>&nbsp; 
+
+--
+
+### <img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/stringr.png" width="10%" style="float:left"/>&nbsp; 
+
+--
+
+### <img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/readxl.png" width="10%" style="float:left"/>&nbsp; 
+
+--
+
+### <img src="https://user-images.githubusercontent.com/520851/34887433-ce1d130e-f7c6-11e7-83fc-d60ad4fae6bd.gif" width="10%" style="float:left"/>&nbsp; 
+
+--
+
+### <img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/reprex.png" width="10%" style="float:left"/>&nbsp; 
+
+
 
 
 ---
