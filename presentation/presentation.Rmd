@@ -1,5 +1,5 @@
 ---
-title: 'IRSAE `r fa(name = "r-project", fill = "Steelblue")` workshop'
+title: 'IRSAE `r fontawesome::fa(name = "r-project", fill = "Steelblue")` workshop'
 subtitle: "Climate Change Ecology"
 author: "Lars Dalby"
 date: "`r format(Sys.Date())`"
@@ -23,6 +23,7 @@ options(htmltools.dir.version = FALSE,
 
 ```{r include=FALSE}
 library(tidyverse)
+library(lubridate)
 library(here)
 library(fontawesome)
 ```
@@ -41,13 +42,13 @@ knitr::include_graphics("survey-answers.png")
 # Program
 
 
-..but first...
+...but first:
 
 - Useful features of the RStudio IDE
 
 - Advice on Project management<sup>1</sup>
 
--
+
 
 
 .footnote[
@@ -127,7 +128,7 @@ How?
 
 --
 
-- RStudio rembers settings, open files, unsaved files(!), etc
+- RStudio rembers settings, open files, unsaved files(!), etc.
 - Dedicated instance of RStudio (`cmd+tab` to switch between projects)
 - Dedicated `R` process
 - File browser is looking the right place
@@ -192,6 +193,8 @@ Make sure to name your stuff properly (your future self will thank you!)
 
 --
 
+Files should be:
+
 1. Machine readable
 2. Human readable
 3. Sort nicely
@@ -203,6 +206,10 @@ This implies:
 1. no spaces, no punctuation, no funny characters (æ,ø,å!!!!), case matters
 2. info on content (2017-06-15_soil-samples.tsv)
 3. start with something numeric, left pad with zeros for constant width, dates in ISO 8601
+
+--
+
+Consistent naming of columns will also save you loads of time. The janitor `r emo::ji("package")` is a great help
 
 ---
 
@@ -228,9 +235,34 @@ fs::dir_ls(here("data")) %>%
 files
 ```
 
+---
+class: middle, center, inverse
+# Now to the hands-on part!
 
 ---
-name: hands-on
+# The `magrittr` `r emo::ji("package")` 
+
+### <img style="margin:0px auto;display:block"src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/pipe.png" width="25%"/>
+
+---
+# The `magrittr` `r emo::ji("package")` 
+
+.pull-left[
+```{r non-pipe-example, eval = TRUE}
+as.Date(ymd("2018-06-01"):ymd("2018-06-03"), origin = "1970-01-01")
+```
+]
+
+
+.pull-right[
+
+```{r pipe-example, eval = TRUE}
+ymd("2018-06-01"):ymd("2018-06-03") %>% 
+  as.Date(origin = "1970-01-01")
+```
+]
+
+---
 class: middle
 
 
@@ -264,26 +296,6 @@ background-image: url(tidyverse.png)
 background-position: 50% 50%
 background-size: 800px
 class: center, bottom, inverse
-
----
-
-background-image: url(sf.png)
-background-position: 50% 50%
-class: center, bottom, inverse
-
----
-
-background-image: url(readxl.png)
-background-position: 50% 50%
-class: center, bottom, inverse
-
----
-
-background-image: url(xlsx-csv-txt-dilemma.png)
-background-position: 50% 50%
-background-size: 800px
-class: center, bottom, inverse
-
 
 
 ---
