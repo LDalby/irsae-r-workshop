@@ -48,11 +48,12 @@ ggmap(the_map) +
           size = 3,
           shape = 21) +
   theme_void()
-  
+
+# Exercises --------------------------------------------------------------
 # Your turn!
+
 # 1.1) Make a plot of your study site/s. Play around with different background maps
 # 1.2) Add a scalebar
-
 
 
 # 2) Hunting stat maps
@@ -70,3 +71,7 @@ ggmap(the_map) +
 # anywhere in DK?
 # I recommend using the package rnaturalearth to get a simpler map 
 # of DK. Otherwise the calculations can take some time...
+
+# 4) Plot plant species richness of the local forests
+# Using the data in the forest folder, produce a richness map
+# What is the max richness of all years? of 2016?
