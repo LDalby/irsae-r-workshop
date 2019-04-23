@@ -16,7 +16,7 @@ iris_nested %>%
          rsq = map_dbl(fit, ~ summary(.x)[["r.squared"]])) %>% 
   arrange(desc(rsq))
 
-ggplot(iris, aes(sepal_width, petal_width, group = "species")) +
+ggplot(iris, aes(sepal_width, petal_width)) +
   geom_point(aes(color = species)) + 
   geom_smooth(method = "lm", aes(group = species), color = "darkgrey") +
   hrbrthemes::theme_ipsum_rc()
