@@ -9,7 +9,7 @@ fs::dir_ls(here("data")) %>%
 
 tibble(file_path = files) %>% 
   mutate(file_contents = map(file_path, ~ read_tsv(., col_types = "di")),
-         file_name = fs::path_file(file_path))  
+         file_name = fs::path_file(file_path)) -> data 
 
 data %>% 
   select(-file_path) %>% 
