@@ -63,3 +63,10 @@ ggmap(the_map) +
 # Main goal: recreate the map shown on the website above for the species you've chosen.
 # Use plot() or mapview() for plotting - ggplot is slow.
 
+
+# 3) Calculate the distance to the coast for DK
+# 3.1) Plot a raster map showing the distance
+# Is it true that there is no more than 50 km to the coast
+# anywhere in DK?
+# I recommend using the package rnaturalearth to get a simpler map 
+# of DK. Otherwise the calculations can take some time...
