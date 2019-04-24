@@ -209,7 +209,7 @@ This implies:
 
 --
 
-Consistent naming of columns will also save you loads of time. The janitor `r emo::ji("package")` is a great help
+Consistent naming of columns will also save you loads of time. The `janitor` `r emo::ji("package")` is a great help
 
 ---
 
@@ -222,18 +222,22 @@ knitr::include_graphics("names-dark-diversity.png")
 ---
 
 # Names
-
+.pull-left[
 ```{r names}
 fs::dir_tree(here("data"))
 
 ```
+
+]
 --
+.pull-right[
 
 ```{r names-subset}
 fs::dir_ls(here("data")) %>% 
-  str_subset("soil_data") -> files
-files
+  str_subset("soil_data") %>% 
+  fs::path_file()
 ```
+]
 
 ---
 class: middle, center, inverse
@@ -247,55 +251,28 @@ class: middle, center, inverse
 ---
 # The `magrittr` `r emo::ji("package")` 
 
-.pull-left[
+
 ```{r non-pipe-example, eval = TRUE}
-as.Date(ymd("2018-06-01"):ymd("2018-06-03"), origin = "1970-01-01")
+factor(as.Date(ymd("2018-06-01"):ymd("2018-06-03"),origin = "1970-01-01"), ordered = TRUE)
 ```
-]
 
-
-.pull-right[
 
 ```{r pipe-example, eval = TRUE}
 ymd("2018-06-01"):ymd("2018-06-03") %>% 
-  as.Date(origin = "1970-01-01")
+  as.Date(origin = "1970-01-01") %>% 
+  factor(ordered = TRUE)
 ```
-]
+
 
 ---
 class: middle
 
 
-# We will look into:
+# `r emo::ji("package")` that will make life easier:
 
 --
 
-### <img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/tidyverse.png" width="10%" style="float:left"/>&nbsp; 
-
---
-
-### <img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/stringr.png" width="10%" style="float:left"/>&nbsp; 
-
---
-
-### <img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/readxl.png" width="10%" style="float:left"/>&nbsp; 
-
---
-
-### <img src="https://user-images.githubusercontent.com/520851/34887433-ce1d130e-f7c6-11e7-83fc-d60ad4fae6bd.gif" width="10%" style="float:left"/>&nbsp; 
-
---
-
-### <img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/reprex.png" width="10%" style="float:left"/>&nbsp; 
-
-
-
-
----
-background-image: url(tidyverse.png)
-background-position: 50% 50%
-background-size: 800px
-class: center, bottom, inverse
+### <img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/tidyverse.png" width="10%" style="float:left"/>&nbsp; <img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/stringr.png" width="10%" style="float:left"/>&nbsp; <img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/purrr.png" width="10%" style="float:left"/>&nbsp; <img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/readxl.png" width="10%" style="float:left"/>&nbsp; <img src="https://user-images.githubusercontent.com/520851/34887433-ce1d130e-f7c6-11e7-83fc-d60ad4fae6bd.gif" width="12%" style="float:left"/>&nbsp; 
 
 
 ---
@@ -305,8 +282,10 @@ class: center, bottom, inverse
 
 1. Calling `python` from `R` - [reticulate](http://blog.rstudio.com/2018/03/26/reticulate-r-interface-to-python/)
 2. GBIF - see the ropensci `rgbif` [tutorial](https://ropensci.org/tutorials/rgbif_tutorial/)
+3. Asking for help - [reprex](https://reprex.tidyverse.org/)
 
 ## Suggested reading:
 1. Data organization in spreadsheets. [Broman & Woo 2017](https://www.tandfonline.com/doi/abs/10.1080/00031305.2017.1375989) 
+2. R for Data Science. [Grolemund & Wickham](https://r4ds.had.co.nz/)
 
 
