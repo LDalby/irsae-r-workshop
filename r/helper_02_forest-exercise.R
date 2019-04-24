@@ -6,9 +6,8 @@ library(glue)
 library(readxl)
 library(pathfinder)
 
-read_sf("/Users/au206907/Desktop/fs_kalo/KaloGIS/temaer/plot.shp",
-        as_tibble = TRUE,
-        crs = 25832) %>% 
+read_sf("/Users/au206907/Downloads/lada/plot_proj.shp",
+        as_tibble = TRUE) %>% 
   rename(pole_id = POLE_ID,
          plot_nr = PLOTNR_) -> plots
 
