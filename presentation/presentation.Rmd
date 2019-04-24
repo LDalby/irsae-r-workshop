@@ -1,5 +1,5 @@
 ---
-title: "IRSAE **R** workshop"
+title: 'IRSAE `r fontawesome::fa(name = "r-project", fill = "Steelblue")` workshop'
 subtitle: "Climate Change Ecology"
 author: "Lars Dalby"
 date: "`r format(Sys.Date())`"
@@ -8,48 +8,91 @@ output:
     lib_dir: libs
     css: ["default", "default-fonts"]
     nature:
-      highlightStyle: github
+      highlightStyle: monokai
       highlightLines: true
       countIncrementalSlides: false
+      ratio: "4:3"
 ---
 
 ```{r setup, include=FALSE}
-options(htmltools.dir.version = FALSE)
+options(htmltools.dir.version = FALSE,
+        fig.retina = 3,
+        warning = FALSE,
+        message = FALSE)
+knitr::opts_chunk$set(comment = NA)
 ```
+
+```{r include=FALSE}
+library(tidyverse)
+library(lubridate)
+library(here)
+library(fontawesome)
+```
+
 
 # Program
 
-Not much time, but here are the topics I think we should touch upon:
 
---
+You asked for:
+
+```{r echo = FALSE}
+knitr::include_graphics("survey-answers.png")
+```
+
+---
+# Program
+
+
+...but first:
 
 - Useful features of the RStudio IDE
 
 - Advice on Project management<sup>1</sup>
 
-- The Tidyverse
 
-- Maps
-
-- Importing excel data
-
-- Random stuff that come up over the next couple of hours 
 
 
 .footnote[
 [1] My slides here are a boildown of Jenny Bryan's excellent [material](https://github.com/jennybc/what-they-forgot) on Project management
 ]
+
+
 ---
 
 # RStudio IDE
-
-Nearly everybody uses RStudio (and I strongly recommed using it)
+.pull-left[
+Nearly all of you use RStudio (and I strongly recommed using it)
 
 Let's have a look around - live demo
 
+]
+
+.pull-right[
+Your answers:
+
+```{r echo = FALSE}
+knitr::include_graphics("editor-answers.png")
+```
+]
+
+???
+
+  1. Pane arrangement
+  2. Themes
+  3. Snippets (ts, lib, fun)
+  4. Addins (datapasta)
+  5. Keyboard shortcuts 
+  6. Cheatsheets
+
+
+
+---
+layout: true
+
+
 ---
 
-# Use a project-oriented workflow<sup>1</sup>
+# Use a project-oriented workflow
 
 .footnote[
 [1] See Jenny Bryan's [article](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/) on Project-oriented workflows for more details
@@ -74,7 +117,10 @@ How?
 
 - Have a directory dedicated to your project
 - Create an RStudio project
-- (make this a git repo)
+- (make this a `r fa("git-square")` [repo](https://happygitwithr.com/new-github-first.html#make-a-repo-on-github-1))
+- Use the [here](https://cran.r-project.org/web/packages/here/index.html) `r emo::ji("package")`
+
+
 
 
 ---
@@ -83,16 +129,33 @@ How?
 
 --
 
-- RStudio rembers settings, open files, unsaved files(!), etc
-- Dedicated instance of RStudio
+- RStudio rembers settings, open files, unsaved files(!), etc.
+- Dedicated instance of RStudio (`cmd+tab` to switch between projects)
 - Dedicated `R` process
 - File browser is looking the right place
-- Work directory starts at the right place
 
 
--- 
+--
 
 Demo
+
+---
+# The here `r emo::ji("package")`
+
+It knows where your project lives so you don't have to worry about it.
+
+This will work:
+
+```{r eval=FALSE, tidy=FALSE}
+source(here("r", "02_plot-maps.R"))
+```
+
+even though the absolute path is:
+```{r echo=FALSE, tidy=FALSE}
+fs::path_wd("r", "02_plot-maps.R")
+```
+
+This means it works across different machines (nice when collaborating!)
 
 --
 
@@ -103,23 +166,25 @@ setwd("/Users/Lars/path/to/secret/place")
 ```
 
 ---
-class: middle, center
-# Start with a clean sheet
-```{r, out.width = "400px", echo=FALSE}
-knitr::include_graphics("rstudio-preferences.png")
-```
+
+background-image: url(rstudio-preferences.png)
+background-position: 50% 65%
+background-size: 40%
+
+# Start with a clean sheet:
 
 ---
 
-# Start with a clean sheet
-Restart `R` often! (short-cut `ctrl+shift+F10`)
+# Start with a clean sheet:
+Restart `R` often! (short-cut `cmd+shift+F10`)
 
 --
 
-This does not give you a clean start:
+This only emties your environment:
 ```{r eval=FALSE, tidy=FALSE}
 rm(list = ls())
 ```
+
 
 ---
 
@@ -128,6 +193,8 @@ rm(list = ls())
 Make sure to name your stuff properly (your future self will thank you!)
 
 --
+
+Files should be:
 
 1. Machine readable
 2. Human readable
@@ -141,35 +208,79 @@ This implies:
 2. info on content (2017-06-15_soil-samples.tsv)
 3. start with something numeric, left pad with zeros for constant width, dates in ISO 8601
 
+--
 
-
----
-background-image: url(tidyverse.png)
-background-position: 50% 50%
-background-size: 800px
-class: center, bottom, inverse
+Consistent naming of columns will also save you loads of time. The `janitor` `r emo::ji("package")` is a great help
 
 ---
 
-background-image: url(sf.png)
-background-position: 50% 50%
-class: center, bottom, inverse
+# Names
+
+```{r echo = FALSE, out.width='75%', fig.align='center'}
+knitr::include_graphics("names-dark-diversity.png")
+```
 
 ---
 
-background-image: url(readxl.png)
-background-position: 50% 50%
-class: center, bottom, inverse
+# Names
+
+```{r names}
+fs::dir_ls(here("data")) 
+
+```
+
+
+--
+
+
+```{r names-subset}
+fs::dir_ls(here("data")) %>% 
+  str_subset("soil_data") %>% 
+  fs::path_file()
+```
+
 
 ---
+class: middle, center, inverse
+# Now to the hands-on part!
 
-background-image: url(xlsx-csv-txt-dilemma.png)
-background-position: 50% 50%
-background-size: 800px
-class: center, bottom, inverse
+---
+# The `magrittr` `r emo::ji("package")` 
+
+### <img style="margin:0px auto;display:block"src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/pipe.png" width="25%"/>
+
+---
+# The `magrittr` `r emo::ji("package")` 
+
+
+```{r non-pipe-example, eval = TRUE}
+factor(as.Date(ymd("2018-06-01"):ymd("2018-06-03"),
+               origin = "1970-01-01"), ordered = TRUE)
+```
+
+
+```{r pipe-example, eval = TRUE}
+ymd("2018-06-01"):ymd("2018-06-03") %>% 
+  as.Date(origin = "1970-01-01") %>% 
+  factor(ordered = TRUE)
+```
+
+
+---
+class: middle
+
+
+# `r emo::ji("package")` that will make life<sup>*</sup> easier:
+
+--
+
+### <img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/tidyverse.png" width="10%" style="float:left"/>&nbsp; <img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/stringr.png" width="10%" style="float:left"/>&nbsp; <img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/purrr.png" width="10%" style="float:left"/>&nbsp; <img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/fs.png" width="10%" style="float:left"/>&nbsp; <img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/readxl.png" width="10%" style="float:left"/>&nbsp; <img src="https://user-images.githubusercontent.com/520851/34887433-ce1d130e-f7c6-11e7-83fc-d60ad4fae6bd.gif" width="12%" style="float:left"/>&nbsp; <img  src="https://github.com/tim-salabim/mvl/blob/cstriestohelp/imagery/animated/box_anim.gif?raw=true" width="12%" style="float:left"/>&nbsp; 
 
 
 
+.footnote[
+[*] or at least the exercises `r emo::ji("smile")`
+]
 ---
 
 # Links
@@ -177,8 +288,11 @@ class: center, bottom, inverse
 
 1. Calling `python` from `R` - [reticulate](http://blog.rstudio.com/2018/03/26/reticulate-r-interface-to-python/)
 2. GBIF - see the ropensci `rgbif` [tutorial](https://ropensci.org/tutorials/rgbif_tutorial/)
+3. Asking for help - [reprex](https://reprex.tidyverse.org/)
+4. `r fa("git-square")` - [Happy git with R](https://happygitwithr.com/)
 
 ## Suggested reading:
 1. Data organization in spreadsheets. [Broman & Woo 2017](https://www.tandfonline.com/doi/abs/10.1080/00031305.2017.1375989) 
+2. R for Data Science. [Grolemund & Wickham](https://r4ds.had.co.nz/)
 
 

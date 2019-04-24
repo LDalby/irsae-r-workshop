@@ -1,5 +1,5 @@
 # IRSAE R workshop, Kaloe
-# Date April 9th 2018
+# Date April 23rd 2019
 # Author Lars Dalby
 
 library(readxl)

@@ -1,5 +1,5 @@
 # IRSAE R workshop, Kaloe
-# Date April 9th 2018
+# Date April 24th 2019
 # Author Lars Dalby
 
 library(tidyverse)
@@ -7,41 +7,41 @@ library(tidyverse)
 # The iris data as data.frame
 iris
 
-# Same as tibble
+# Same as tibble 
 iris %>% 
   as_tibble()
 
-# Select Species and Petal.xxx columns
+# Same as tibble (janitor >= vers. 1.2.0 to get make_clean_names)
 iris %>% 
-  as_tibble() %>% 
-  select(Species,
-         starts_with("Petal"))
+  as_tibble(.name_repair = janitor::make_clean_names) -> iris_clean
+iris_clean
 
-# Filter to only Sepal.Width <= 3
-iris %>% 
-  as_tibble() %>% 
-  filter(Sepal.Width <= 3)
+# Select species and petal_xxx columns
+iris_clean %>% 
+  select(species,
+         starts_with("petal"))
+
+# Filter to only sepal_width <= 3
+iris_clean %>% 
+  filter(sepal_width <= 3)
 
 # Calculate new area column
-iris %>% 
-  as_tibble() %>% 
-  mutate(Sepal.Area = Sepal.Length * Sepal.Width)
+iris_clean %>% 
+  mutate(sepal_area = sepal_length * sepal_width)
   
 
 # Summarize into species wise averages
-iris %>% 
-  as_tibble() %>% 
-  mutate(Sepal.Area = Sepal.Length * Sepal.Width) %>% 
-  group_by(Species) %>% 
-  summarise(Avg.Area = mean(Sepal.Area))
+iris_clean %>% 
+  mutate(sepal_area = sepal_length * sepal_width) %>% 
+  group_by(species) %>% 
+  summarise(avg_area = mean(sepal_area))
 
-# Nice one! But not particulaly tidy - can we sort by Avg.Area?
+# Nice one! But not particulaly tidy - can we sort by avg_area?
 # Sure! Meet arrange()
-iris %>% 
-  as_tibble() %>% 
-  mutate(Sepal.Area = Sepal.Length * Sepal.Width) %>% 
-  group_by(Species) %>% 
-  summarise(Avg.Area = mean(Sepal.Area)) %>% 
-  arrange(Avg.Area)
+iris_clean %>% 
+  mutate(sepal_area = sepal_length * sepal_width) %>% 
+  group_by(species) %>% 
+  summarise(avg_area = mean(sepal_area)) %>% 
+  arrange(avg_area)
 
 
