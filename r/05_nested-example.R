@@ -4,6 +4,8 @@
 
 # list columns
 
+library(tidyverse)
+
 iris %>% 
   as_tibble(.name_repair = janitor::make_clean_names) -> iris
 
