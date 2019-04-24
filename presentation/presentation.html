@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
   <head>
-    <title>IRSAE R workshop</title>
+    <title>IRSAE  workshop</title>
     <meta charset="utf-8" />
     <meta name="author" content="Lars Dalby" />
-    <meta name="date" content="2019-04-10" />
+    <meta name="date" content="2019-04-24" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
   </head>
@@ -12,46 +12,59 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# IRSAE <strong>R</strong> workshop
+# IRSAE <svg style="height:0.8em;top:.04em;position:relative;fill:Steelblue;" viewBox="0 0 581 512"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/></svg> workshop
 ## Climate Change Ecology
 ### Lars Dalby
-### 2019-04-10
+### 2019-04-24
 
 ---
+
+
+
 
 
 
 
 # Program
 
-Not much time, but here are the topics I think we should touch upon:
 
---
+You asked for:
+
+&lt;img src="survey-answers.png" width="3093" /&gt;
+
+---
+# Program
+
+
+...but first:
 
 - Useful features of the RStudio IDE
 
 - Advice on Project management&lt;sup&gt;1&lt;/sup&gt;
 
-- The Tidyverse
 
-- Maps
-
-- Importing excel data
-
-- Random stuff that come up over the next couple of hours 
 
 
 .footnote[
 [1] My slides here are a boildown of Jenny Bryan's excellent [material](https://github.com/jennybc/what-they-forgot) on Project management
 ]
+
+
 ---
 
-
 # RStudio IDE
-
-Nearly everybody uses RStudio (and I strongly recommed using it)
+.pull-left[
+Nearly all of you use RStudio (and I strongly recommed using it)
 
 Let's have a look around - live demo
+
+]
+
+.pull-right[
+Your answers:
+
+&lt;img src="editor-answers.png" width="1677" /&gt;
+]
 
 ???
 
@@ -63,9 +76,14 @@ Let's have a look around - live demo
   6. Cheatsheets
 
 
+
+---
+layout: true
+
+
 ---
 
-# Use a project-oriented workflow&lt;sup&gt;1&lt;/sup&gt;
+# Use a project-oriented workflow
 
 .footnote[
 [1] See Jenny Bryan's [article](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/) on Project-oriented workflows for more details
@@ -90,7 +108,10 @@ How?
 
 - Have a directory dedicated to your project
 - Create an RStudio project
-- (make this a git repo)
+- (make this a &lt;svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 448 512"&gt;&lt;path d="M140.1 348.5c12.1 0 29.5 2.1 29.5 17.9 0 15.5-13.9 18.8-27 18.8-12.3 0-30.9-2-30.9-18s15.7-18.7 28.4-18.7zm-24.7-116.6c0 14.8 6.6 24.1 22.3 24.1 15.5 0 21.2-10 21.2-24.5.1-34.4-43.5-34.8-43.5.4zM448 80v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48zm-241 93.7c-12.3 4.8-25.5 8.4-38.9 8.4-38.5-22.1-90.7.9-90.7 49.5 0 18 11.6 42.9 29.6 48.9v.7c-13.4 5.9-17.1 36.1.7 47v.7c-19.5 6.4-32.3 18.8-32.3 40.2 0 36.8 34.8 47 65.4 47 37.1 0 64.8-13.4 64.8-54.3 0-50.4-72.1-31.8-72.1-59.1 0-9.6 5.2-13.4 14.1-15.2 29.6-5.5 48.2-28.6 48.2-58.7 0-5.2-1.1-10.2-2.9-15 4.8-1.1 9.5-2.3 14.1-3.9v-36.2zm56.8 1.8h-39.6c1.3 10.6 1.1 142.6 0 155.5h39.6c-1.1-12.8-1.2-145.1 0-155.5zm4.5-53.3c0-13.4-10-26.2-24.1-26.2-14.3 0-24.6 12.5-24.6 26.2 0 13.6 10.5 25.9 24.6 25.9 13.7 0 24.1-12.5 24.1-25.9zm104.3 53.3h-36.4c0-9.8-.4-19.6 1.1-29.5h-40.5c1.3 7.3 1.1 13.6 1.1 29.5h-17.1v33.9c11.9-1.9 12.1-.7 17.1-.7v.7h-.4v62.7c0 31.1 4.5 61.2 42.7 61.2 10.7 0 23-1.8 32.5-7v-35c-5.7 3.9-13.9 5.9-20.9 5.9-13.2 0-15.5-12.9-15.5-23.4v-65.2c22.7 0 36.4.7 36.4.7v-33.8z"/&gt;&lt;/svg&gt; [repo](https://happygitwithr.com/new-github-first.html#make-a-repo-on-github-1))
+- Use the [here](https://cran.r-project.org/web/packages/here/index.html) 📦
+
+
 
 
 ---
@@ -99,16 +120,35 @@ How?
 
 --
 
-- RStudio rembers settings, open files, unsaved files(!), etc
-- Dedicated instance of RStudio
+- RStudio rembers settings, open files, unsaved files(!), etc.
+- Dedicated instance of RStudio (`cmd+tab` to switch between projects)
 - Dedicated `R` process
 - File browser is looking the right place
-- Work directory starts at the right place
 
 
--- 
+--
 
 Demo
+
+---
+# The here 📦
+
+It knows where your project lives so you don't have to worry about it.
+
+This will work:
+
+
+```r
+source(here("r", "02_plot-maps.R"))
+```
+
+even though the absolute path is:
+
+```
+/Users/au206907/git/irsae-r-workshop/presentation/r/02_plot-maps.R
+```
+
+This means it works across different machines (nice when collaborating!)
 
 --
 
@@ -120,22 +160,26 @@ setwd("/Users/Lars/path/to/secret/place")
 ```
 
 ---
-class: middle, center
-# Start with a clean sheet
-&lt;img src="rstudio-preferences.png" width="400px" /&gt;
+
+background-image: url(rstudio-preferences.png)
+background-position: 50% 65%
+background-size: 40%
+
+# Start with a clean sheet:
 
 ---
 
-# Start with a clean sheet
-Restart `R` often! (short-cut `ctrl+shift+F10`)
+# Start with a clean sheet:
+Restart `R` often! (short-cut `cmd+shift+F10`)
 
 --
 
-This does not give you a clean start:
+This only emties your environment:
 
 ```r
 rm(list = ls())
 ```
+
 
 ---
 
@@ -144,6 +188,8 @@ rm(list = ls())
 Make sure to name your stuff properly (your future self will thank you!)
 
 --
+
+Files should be:
 
 1. Machine readable
 2. Human readable
@@ -157,35 +203,106 @@ This implies:
 2. info on content (2017-06-15_soil-samples.tsv)
 3. start with something numeric, left pad with zeros for constant width, dates in ISO 8601
 
+--
 
-
----
-background-image: url(tidyverse.png)
-background-position: 50% 50%
-background-size: 800px
-class: center, bottom, inverse
+Consistent naming of columns will also save you loads of time. The `janitor` 📦 is a great help
 
 ---
 
-background-image: url(sf.png)
-background-position: 50% 50%
-class: center, bottom, inverse
+# Names
+
+&lt;img src="names-dark-diversity.png" width="75%" style="display: block; margin: auto;" /&gt;
 
 ---
 
-background-image: url(readxl.png)
-background-position: 50% 50%
-class: center, bottom, inverse
+# Names
+
+
+```r
+fs::dir_ls(here("data")) 
+```
+
+```
+/Users/au206907/git/irsae-r-workshop/data/2018-06-01_soil_data.tsv
+/Users/au206907/git/irsae-r-workshop/data/2018-06-02_soil_data.tsv
+/Users/au206907/git/irsae-r-workshop/data/2018-06-03_soil_data.tsv
+/Users/au206907/git/irsae-r-workshop/data/2018-06-04_soil_data.tsv
+/Users/au206907/git/irsae-r-workshop/data/2018-06-05_soil_data.tsv
+/Users/au206907/git/irsae-r-workshop/data/datapasta-demo.xlsx
+/Users/au206907/git/irsae-r-workshop/data/forest
+/Users/au206907/git/irsae-r-workshop/data/readxl-example-data.xlsx
+```
+
+
+--
+
+
+
+```r
+fs::dir_ls(here("data")) %&gt;% 
+  str_subset("soil_data") %&gt;% 
+  fs::path_file()
+```
+
+```
+2018-06-01_soil_data.tsv 2018-06-02_soil_data.tsv 2018-06-03_soil_data.tsv 
+2018-06-04_soil_data.tsv 2018-06-05_soil_data.tsv 
+```
+
 
 ---
+class: middle, center, inverse
+# Now to the hands-on part!
 
-background-image: url(xlsx-csv-txt-dilemma.png)
-background-position: 50% 50%
-background-size: 800px
-class: center, bottom, inverse
+---
+# The `magrittr` 📦 
+
+### &lt;img style="margin:0px auto;display:block"src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/pipe.png" width="25%"/&gt;
+
+---
+# The `magrittr` 📦 
 
 
 
+```r
+factor(as.Date(ymd("2018-06-01"):ymd("2018-06-03"),
+               origin = "1970-01-01"), ordered = TRUE)
+```
+
+```
+[1] 2018-06-01 2018-06-02 2018-06-03
+Levels: 2018-06-01 &lt; 2018-06-02 &lt; 2018-06-03
+```
+
+
+
+```r
+ymd("2018-06-01"):ymd("2018-06-03") %&gt;% 
+  as.Date(origin = "1970-01-01") %&gt;% 
+  factor(ordered = TRUE)
+```
+
+```
+[1] 2018-06-01 2018-06-02 2018-06-03
+Levels: 2018-06-01 &lt; 2018-06-02 &lt; 2018-06-03
+```
+
+
+---
+class: middle
+
+
+# 📦 that will make life&lt;sup&gt;*&lt;/sup&gt; easier:
+
+--
+
+### &lt;img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/tidyverse.png" width="10%" style="float:left"/&gt;&amp;nbsp; &lt;img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/stringr.png" width="10%" style="float:left"/&gt;&amp;nbsp; &lt;img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/purrr.png" width="10%" style="float:left"/&gt;&amp;nbsp; &lt;img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/fs.png" width="10%" style="float:left"/&gt;&amp;nbsp; &lt;img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/readxl.png" width="10%" style="float:left"/&gt;&amp;nbsp; &lt;img src="https://user-images.githubusercontent.com/520851/34887433-ce1d130e-f7c6-11e7-83fc-d60ad4fae6bd.gif" width="12%" style="float:left"/&gt;&amp;nbsp; &lt;img  src="https://github.com/tim-salabim/mvl/blob/cstriestohelp/imagery/animated/box_anim.gif?raw=true" width="12%" style="float:left"/&gt;&amp;nbsp; 
+
+
+
+.footnote[
+[*] or at least the exercises 😄
+]
 ---
 
 # Links
@@ -193,16 +310,20 @@ class: center, bottom, inverse
 
 1. Calling `python` from `R` - [reticulate](http://blog.rstudio.com/2018/03/26/reticulate-r-interface-to-python/)
 2. GBIF - see the ropensci `rgbif` [tutorial](https://ropensci.org/tutorials/rgbif_tutorial/)
+3. Asking for help - [reprex](https://reprex.tidyverse.org/)
+4. &lt;svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 448 512"&gt;&lt;path d="M140.1 348.5c12.1 0 29.5 2.1 29.5 17.9 0 15.5-13.9 18.8-27 18.8-12.3 0-30.9-2-30.9-18s15.7-18.7 28.4-18.7zm-24.7-116.6c0 14.8 6.6 24.1 22.3 24.1 15.5 0 21.2-10 21.2-24.5.1-34.4-43.5-34.8-43.5.4zM448 80v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48zm-241 93.7c-12.3 4.8-25.5 8.4-38.9 8.4-38.5-22.1-90.7.9-90.7 49.5 0 18 11.6 42.9 29.6 48.9v.7c-13.4 5.9-17.1 36.1.7 47v.7c-19.5 6.4-32.3 18.8-32.3 40.2 0 36.8 34.8 47 65.4 47 37.1 0 64.8-13.4 64.8-54.3 0-50.4-72.1-31.8-72.1-59.1 0-9.6 5.2-13.4 14.1-15.2 29.6-5.5 48.2-28.6 48.2-58.7 0-5.2-1.1-10.2-2.9-15 4.8-1.1 9.5-2.3 14.1-3.9v-36.2zm56.8 1.8h-39.6c1.3 10.6 1.1 142.6 0 155.5h39.6c-1.1-12.8-1.2-145.1 0-155.5zm4.5-53.3c0-13.4-10-26.2-24.1-26.2-14.3 0-24.6 12.5-24.6 26.2 0 13.6 10.5 25.9 24.6 25.9 13.7 0 24.1-12.5 24.1-25.9zm104.3 53.3h-36.4c0-9.8-.4-19.6 1.1-29.5h-40.5c1.3 7.3 1.1 13.6 1.1 29.5h-17.1v33.9c11.9-1.9 12.1-.7 17.1-.7v.7h-.4v62.7c0 31.1 4.5 61.2 42.7 61.2 10.7 0 23-1.8 32.5-7v-35c-5.7 3.9-13.9 5.9-20.9 5.9-13.2 0-15.5-12.9-15.5-23.4v-65.2c22.7 0 36.4.7 36.4.7v-33.8z"/&gt;&lt;/svg&gt; - [Happy git with R](https://happygitwithr.com/)
 
 ## Suggested reading:
-1. Data organization in spreadsheets. [Broman &amp; Woo 2017](https://www.tandfonline.com/doi/abs/10.1080/00031305.2017.1375989)
+1. Data organization in spreadsheets. [Broman &amp; Woo 2017](https://www.tandfonline.com/doi/abs/10.1080/00031305.2017.1375989) 
+2. R for Data Science. [Grolemund &amp; Wickham](https://r4ds.had.co.nz/)
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
-"highlightStyle": "github",
+"highlightStyle": "monokai",
 "highlightLines": true,
-"countIncrementalSlides": false
+"countIncrementalSlides": false,
+"ratio": "4:3"
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
