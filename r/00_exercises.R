@@ -6,7 +6,7 @@
 # Your turn!
 
 # 1.1) Make a plot of your study site/s. Play around with different background maps
-# 1.2) Add a scalebar
+# using ggmap, ggspatial and mapview (and others maybe?)
 
 
 # 2) Hunting stat maps

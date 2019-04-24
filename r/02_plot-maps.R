@@ -29,6 +29,7 @@ mapview(jagtslottet, map.types = "OpenStreetMap.Mapnik")
 # But for e.g. a small number of points it's fine. 
 
 # We use ggmap to get background maps
+library(ggmap)
 jagtslottet %>% 
   st_sf() %>% 
   st_transform(crs = 25832) %>% 

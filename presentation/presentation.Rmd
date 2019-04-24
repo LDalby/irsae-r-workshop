@@ -11,7 +11,7 @@ output:
       highlightStyle: monokai
       highlightLines: true
       countIncrementalSlides: false
-      ratio: "4:3"
+      ratio: "16:9"
 ---
 
 ```{r setup, include=FALSE}
@@ -19,7 +19,7 @@ options(htmltools.dir.version = FALSE,
         fig.retina = 3,
         warning = FALSE,
         message = FALSE)
-knitr::opts_chunk$set(comment = NA)
+# knitr::opts_chunk$set(comment = "#")
 ```
 
 ```{r include=FALSE}
@@ -125,7 +125,7 @@ How?
 
 ---
 
-# What are the benefits of `.rproj`?
+# What are the benefits of `.Rproj`?
 
 --
 
@@ -223,21 +223,25 @@ knitr::include_graphics("names-dark-diversity.png")
 ---
 
 # Names
+.pull-left[
 
 ```{r names}
-fs::dir_ls(here("data")) 
+fs::dir_tree(here("data")) 
 
 ```
+]
 
 
 --
-
-
+.pull-right[
 ```{r names-subset}
 fs::dir_ls(here("data")) %>% 
   str_subset("soil_data") %>% 
   fs::path_file()
 ```
+
+]
+
 
 
 ---
@@ -254,8 +258,7 @@ class: middle, center, inverse
 
 
 ```{r non-pipe-example, eval = TRUE}
-factor(as.Date(ymd("2018-06-01"):ymd("2018-06-03"),
-               origin = "1970-01-01"), ordered = TRUE)
+factor(as.Date(ymd("2018-06-01"):ymd("2018-06-03"), origin = "1970-01-01"), ordered = TRUE)
 ```
 
 

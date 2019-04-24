@@ -116,7 +116,7 @@ How?
 
 ---
 
-# What are the benefits of `.rproj`?
+# What are the benefits of `.Rproj`?
 
 --
 
@@ -145,7 +145,7 @@ source(here("r", "02_plot-maps.R"))
 even though the absolute path is:
 
 ```
-/Users/au206907/git/irsae-r-workshop/presentation/r/02_plot-maps.R
+## /Users/au206907/git/irsae-r-workshop/presentation/r/02_plot-maps.R
 ```
 
 This means it works across different machines (nice when collaborating!)
@@ -216,27 +216,35 @@ Consistent naming of columns will also save you loads of time. The `janitor` �
 ---
 
 # Names
+.pull-left[
 
 
 ```r
-fs::dir_ls(here("data")) 
+fs::dir_tree(here("data")) 
 ```
 
 ```
-/Users/au206907/git/irsae-r-workshop/data/2018-06-01_soil_data.tsv
-/Users/au206907/git/irsae-r-workshop/data/2018-06-02_soil_data.tsv
-/Users/au206907/git/irsae-r-workshop/data/2018-06-03_soil_data.tsv
-/Users/au206907/git/irsae-r-workshop/data/2018-06-04_soil_data.tsv
-/Users/au206907/git/irsae-r-workshop/data/2018-06-05_soil_data.tsv
-/Users/au206907/git/irsae-r-workshop/data/datapasta-demo.xlsx
-/Users/au206907/git/irsae-r-workshop/data/forest
-/Users/au206907/git/irsae-r-workshop/data/readxl-example-data.xlsx
+## /Users/au206907/git/irsae-r-workshop/data
+## ├── 2018-06-01_soil_data.tsv
+## ├── 2018-06-02_soil_data.tsv
+## ├── 2018-06-03_soil_data.tsv
+## ├── 2018-06-04_soil_data.tsv
+## ├── 2018-06-05_soil_data.tsv
+## ├── datapasta-demo.xlsx
+## ├── forest
+## │   ├── 1993_vegetation-data-kalo.tsv
+## │   ├── 1998_vegetation-data-kalo.tsv
+## │   ├── 2005_vegetation-data-kalo.tsv
+## │   ├── 2016_vegetation-data-kalo.tsv
+## │   ├── forest.gpkg
+## │   └── plant-list.xlsx
+## └── readxl-example-data.xlsx
 ```
+]
 
 
 --
-
-
+.pull-right[
 
 ```r
 fs::dir_ls(here("data")) %&gt;% 
@@ -245,9 +253,12 @@ fs::dir_ls(here("data")) %&gt;%
 ```
 
 ```
-2018-06-01_soil_data.tsv 2018-06-02_soil_data.tsv 2018-06-03_soil_data.tsv 
-2018-06-04_soil_data.tsv 2018-06-05_soil_data.tsv 
+## 2018-06-01_soil_data.tsv 2018-06-02_soil_data.tsv 2018-06-03_soil_data.tsv 
+## 2018-06-04_soil_data.tsv 2018-06-05_soil_data.tsv
 ```
+
+]
+
 
 
 ---
@@ -265,13 +276,12 @@ class: middle, center, inverse
 
 
 ```r
-factor(as.Date(ymd("2018-06-01"):ymd("2018-06-03"),
-               origin = "1970-01-01"), ordered = TRUE)
+factor(as.Date(ymd("2018-06-01"):ymd("2018-06-03"), origin = "1970-01-01"), ordered = TRUE)
 ```
 
 ```
-[1] 2018-06-01 2018-06-02 2018-06-03
-Levels: 2018-06-01 &lt; 2018-06-02 &lt; 2018-06-03
+## [1] 2018-06-01 2018-06-02 2018-06-03
+## Levels: 2018-06-01 &lt; 2018-06-02 &lt; 2018-06-03
 ```
 
 
@@ -283,8 +293,8 @@ ymd("2018-06-01"):ymd("2018-06-03") %&gt;%
 ```
 
 ```
-[1] 2018-06-01 2018-06-02 2018-06-03
-Levels: 2018-06-01 &lt; 2018-06-02 &lt; 2018-06-03
+## [1] 2018-06-01 2018-06-02 2018-06-03
+## Levels: 2018-06-01 &lt; 2018-06-02 &lt; 2018-06-03
 ```
 
 
@@ -323,7 +333,7 @@ class: middle
 "highlightStyle": "monokai",
 "highlightLines": true,
 "countIncrementalSlides": false,
-"ratio": "4:3"
+"ratio": "16:9"
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
