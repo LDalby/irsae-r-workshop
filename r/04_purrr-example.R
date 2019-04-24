@@ -4,6 +4,9 @@
 # This example is adapted from:
 # https://serialmentor.com/blog/2016/6/13/reading-and-combining-many-tidy-data-files-in-R
 
+library(tidyverse)
+library(lubridate)
+
 fs::dir_ls(here("data")) %>% 
   str_subset("soil_data") -> files
 
